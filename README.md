@@ -27,4 +27,4 @@ Things you may want to cover:
 
 - New tocken create. Old one expiried
 
-- Rimante
+- Login fixed
