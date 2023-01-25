@@ -24,3 +24,7 @@ Things you may want to cover:
 - ...
 
 - Testing changes
+
+- New tocken create. Old one expiried
+
+- Rimante
