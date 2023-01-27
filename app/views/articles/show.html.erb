@@ -9,8 +9,19 @@
 <%= render @article %>
 
 <div>
+  <%# 
+    in edit_article_path(vi behöver object här) in order to form the route
+    men vi redan har @article instans variable in show.html.erb iniciated in 
+    articles_controller.rb som hittar/showing article with id
+    in the article_controller.rb under def shor vi har 
+    @article = Article.find(params[:id])
+  %>
+
   <%= link_to "Edit this article", edit_article_path(@article) %> |
   <%= link_to "Back to articles", articles_path %>
-
-  <%= button_to "Destroy this article", @article, method: :delete %>
+  <%#samme med delete, funkar inte med link_to använder delete%>
+  <%# with  delete, data: {confirm: "Are you sure?} doesn't work using another method%>
+  <%= button_to "Destroy this article", @article, method: :delete,  
+    form: { data: { turbo_confirm: "Are you sure?" } }
+  %>
 </div>

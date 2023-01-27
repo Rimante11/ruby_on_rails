@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  #before_action performs this set action for only det som står i [ show, deti...]
   before_action :set_article, only: %i[ show edit update destroy ]
 
   # GET /articles or /articles.json
@@ -9,7 +10,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1 or /articles/1.json
   def show
     #SKAPPAT AV MIG
-    @article = Article.find(params[:id])
+    # @article = Article.find(params[:id])
   end
 
   # GET /articles/new
@@ -20,13 +21,13 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
-    @article = Article.find(params[:id])
+    # @article = Article.find(params[:id])
   end
 
   # POST /articles or /articles.json
   def create
     # @article pga vi nehöver det outside def create
-    @article = Article.new(article_params)
+    # @article = Article.new(article_params)
 
     respond_to do |format|
       if @article.save
@@ -72,11 +73,19 @@ class ArticlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
-      @article = Article.find(params[:id])
+      # @article = Article.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def article_params
       params.require(:article).permit(:title, :description)
     end
+
+    #any methods or actions bellow private are available only to this controller not outside
+    private
+
+    def set_article
+      @article = Article.find(params[:id])
+    end
+
 end
