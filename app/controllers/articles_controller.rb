@@ -58,6 +58,9 @@ class ArticlesController < ApplicationController
 
   # DELETE /articles/1 or /articles/1.json
   def destroy
+    #to find article från articles table
+    # @article = Article.find(params[:id])
+    # sen @article.destroy
     @article.destroy
 
     respond_to do |format|
