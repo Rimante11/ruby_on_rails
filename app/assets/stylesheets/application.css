@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+ .jumbotron {
+   padding: 2rem 1rem;
+   margin-bottom: 2rem;
+   background-color: #e9ecef;
+   border-radius: .3rem;
+ }
+
+ .btn-create-new-article{
+  border-radius: 0.5rem;
+  background-color: #0d6efd;
+  color: #fff;
+  padding: 0.5rem;
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+ }
+
+ .btn-create-new-article:hover{
+  background-color: #0a58ca;
+  color: #fff;
+ }
