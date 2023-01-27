@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1 or /articles/1.json
   def show
     #SKAPPAT AV MIG
-    # @article = Article.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   # GET /articles/new
@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
   # POST /articles or /articles.json
   def create
     # @article pga vi nehöver det outside def create
-    # @article = Article.new(article_params)
+    @article = Article.new(article_params)
 
     respond_to do |format|
       if @article.save
@@ -70,19 +70,21 @@ class ArticlesController < ApplicationController
     end
   end
 
+  #any methods or actions bellow private are available only to this controller not outside
+  # PRIVATE  does not need 'end' in the end AND allways in the bottom of other controllers
+  # dvs sist i ex controller.rb
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_article
+    # def set_article
       # @article = Article.find(params[:id])
-    end
+    # end
 
     # Only allow a list of trusted parameters through.
     def article_params
       params.require(:article).permit(:title, :description)
     end
 
-    #any methods or actions bellow private are available only to this controller not outside
-    private
+    private 
 
     def set_article
       @article = Article.find(params[:id])
