@@ -14,6 +14,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
+    #skapar new article on reload och vi kan få error msg
     @article = Article.new
   end
 
@@ -23,10 +24,13 @@ class ArticlesController < ApplicationController
 
   # POST /articles or /articles.json
   def create
+    # @article pga vi nehöver det outside def create
     @article = Article.new(article_params)
 
     respond_to do |format|
       if @article.save
+        #redirection to articles/:id ex: articles/7
+        #notice att få msg efter vi skappat new article
         format.html { redirect_to article_url(@article), notice: "Article was successfully created." }
         format.json { render :show, status: :created, location: @article }
       else
