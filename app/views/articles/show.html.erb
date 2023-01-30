@@ -1,33 +1,60 @@
 <p style="color: green"><%= notice %></p>
+
 <div class="jumbotron m-3">
-  <h1 class="display-4 text-center">Showing article details</h1>
-  <hr class="my-4">
-  <%#
-  <p><strong>Title: </strong><%= @article.title %>
-  <%#
-  </p>
-  %>
-  <%= render @article %>
+    <h2 class="display-4 text-center"><%= @article.title%></h2>
+    <p class="text-center">
+      <%= link_to 'Create new article', new_article_path, class: "btn-success btn-lg btn text-center" %>
+    </p>
+    <hr class="my-4">
 
-  <div>
-    <%# 
-      in edit_article_path(vi behöver object här) in order to form the route
-      men vi redan har @article instans variable in show.html.erb iniciated in 
-      articles_controller.rb som hittar/showing article with id
-      in the article_controller.rb under def shor vi har 
-      @article = Article.find(params[:id])
-    %>
+    <div class="container ">
+      
+        <div class="row justify-content-md-center">
+          <div class="col-8 mt-4">
+            <div class="card text-center shadow mb-5 bg-white rounded">
+              <div class="card-header font-italic">
+                by Some Person
+              </div>
+            <div class="card-body">
+              
 
-    <%#samme med delete, funkar inte med link_to använder delete%>
-    <%# with  delete, data: {confirm: "Are you sure?} doesn't work using another method%>
-    <%= button_to "Destroy this article", @article, method: :delete,  
-      form: { data: { turbo_confirm: "Are you sure?" } }, class: "btn-create-new-article btn-destroy-show-article-page"
-    %>
-    <div class="a-destory">
-    <%= link_to "[ Edit this article ", edit_article_path(@article) %>  | 
-    <%= link_to " Back to articles ]", articles_path %>
+              <div class="card-text text-left"><%= simple_format(@article.description) %></div>
+            
+              <button type="button" class="btn btn-outline-primary"><%= link_to 'Edit', edit_article_path(@article), method: :edit, class: "btn-outline-success" %></button>
+              <button type="button" class="btn btn-outline-danger"><%= link_to 'Delete', article_path(@article), method: :delete, form: { data: { turbo_comfirm: "Are you sure?" } } %></button>
+            </div>
+            <div class="card-footer text-muted">
+                <small>Created <%= time_ago_in_words(@article.created_at)%> ago, edited <%= time_ago_in_words(@article.updated_at)%> ago</small>
+            </div>
+          </div>
+        </div>
     </div>
+    <br>
+        
+      
+    </div>
+
+    <%#
+    <div id="articles">
+      <% @articles.each do |article| %>
+    <%#  <%= render article %>
+    <%#  <p>
+          <%= link_to "Show this article", article %>
+    <%#   </p>
+      <% end %>
+    <%#</div>
+
+    <%= link_to "New article", new_article_path %>
+  
+    <%#------------ Extra code -----------%>
     
-  </div>
+   
 
 </div>
+
+<footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; <%= link_to "Alpha Blog", root_path, class: "text-white" %></small>
+    </div>
+</footer>
+
