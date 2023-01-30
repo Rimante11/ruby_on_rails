@@ -29,6 +29,14 @@
   display: inline-block;
   text-decoration: none;
   border: none;
+  margin: auto;
+  display: flex;
+ }
+
+ .a-destory {
+  display: flex;
+  justify-content: center;
+  
  }
 
  .btn-create-new-article:hover{
@@ -88,6 +96,18 @@
 
  .label-text {
   color: #fff;
+ }
+
+ .show-article {
+  background:#fcfcfc;
+  display: flex;
+  margin: auto;
+ }
+
+ .btn-destroy-show-article-page {
+  justify-content: center;
+  display: flex;
+  margin: auto;
  }
 
  html,

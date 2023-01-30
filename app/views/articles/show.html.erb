@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 <div class="jumbotron m-3">
-  <h1>Showing article details</h1>
+  <h1 class="display-4 text-center">Showing article details</h1>
   <hr class="my-4">
   <%#
   <p><strong>Title: </strong><%= @article.title %>
@@ -21,11 +21,12 @@
     <%#samme med delete, funkar inte med link_to använder delete%>
     <%# with  delete, data: {confirm: "Are you sure?} doesn't work using another method%>
     <%= button_to "Destroy this article", @article, method: :delete,  
-      form: { data: { turbo_confirm: "Are you sure?" } }, class: "btn-create-new-article"
+      form: { data: { turbo_confirm: "Are you sure?" } }, class: "btn-create-new-article btn-destroy-show-article-page"
     %>
-
-    <%= link_to "Edit this article", edit_article_path(@article) %> |
-    <%= link_to "Back to articles", articles_path %>
+    <div class="a-destory">
+    <%= link_to "[ Edit this article ", edit_article_path(@article) %>  | 
+    <%= link_to " Back to articles ]", articles_path %>
+    </div>
     
   </div>
 
