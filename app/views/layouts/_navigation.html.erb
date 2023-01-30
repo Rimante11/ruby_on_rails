@@ -11,7 +11,10 @@
               <%= link_to "Articles", articles_path, class: "nav-link"%>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <%= link_to "About Us", about_path, class: "nav-link"%>
+            </li>
+            <li class="nav-item">
+              <%=link_to "Contact", contact_path, class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -24,9 +27,7 @@
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
               </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
+            
           </ul>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
