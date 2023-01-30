@@ -1,12 +1,15 @@
 <div class="jumbotron m-3">
   <h1>Edit article</h1>
-  <hr class="my-4">
+  <hr class="my-4 display-4 text-center">
   <%= render "form", article: @article %>
 
   <br>
 
-  <div>
-    <%= link_to "Show this article", @article %> |
-    <%= link_to "Back to articles", articles_path %>
-  </div>
+  
 </div>
+
+<footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; <%= link_to "Alpha Blog", root_path %></small>
+    </div>
+</footer>

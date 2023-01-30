@@ -18,13 +18,15 @@
       @article = Article.find(params[:id])
     %>
 
-    <%= link_to "Edit this article", edit_article_path(@article) %> |
-    <%= link_to "Back to articles", articles_path %>
     <%#samme med delete, funkar inte med link_to använder delete%>
     <%# with  delete, data: {confirm: "Are you sure?} doesn't work using another method%>
     <%= button_to "Destroy this article", @article, method: :delete,  
       form: { data: { turbo_confirm: "Are you sure?" } }, class: "btn-create-new-article"
     %>
+
+    <%= link_to "Edit this article", edit_article_path(@article) %> |
+    <%= link_to "Back to articles", articles_path %>
+    
   </div>
 
 </div>

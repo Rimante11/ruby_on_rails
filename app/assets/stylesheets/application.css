@@ -17,7 +17,7 @@
  .jumbotron {
    padding: 2rem 1rem;
    margin-bottom: 2rem;
-   background-color: #e9ecef;
+   background-color: #d6d8db;
    border-radius: .3rem;
  }
 
@@ -35,3 +35,76 @@
   background-color: #0a58ca;
   color: #fff;
  }
+
+ .btn-submit {
+  color: #fff;
+ }
+
+ .navbar {
+  background-color: rgb(41, 52, 52) !important;
+  padding-left: 15px;
+  padding-right: 15px;
+ }
+
+ .nav-link {
+  color: #fff !important;
+ }
+
+ #logo {
+  float: left;
+  font-size: 32px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+ }
+
+ .home-container {
+    background-image: url('alpha_blog.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 460px;
+ }
+
+ .home-page-title {
+  color: rgb(70, 70, 70) !important;
+  padding-top: 68px;
+ }
+
+ .lorem-text-home-page {
+  padding-right: 50px;
+  padding-left: 50px;
+ }
+
+ .btn-create-article {
+  display: flex;
+  justify-content: center;
+ }
+
+ .form-bgd {
+  background-color: #353a42;
+ }
+
+ .label-text {
+  color: #fff;
+ }
+
+ html,
+ body {
+   height: 100%;
+ }
+
+ #page-content {
+   flex: 1 0 auto;
+ }
+
+ a {
+  text-decoration: none;
+ }
+
+ /* Other Classes for Page Styling */
+
+#sticky-footer {
+  flex-shrink: none;
+}

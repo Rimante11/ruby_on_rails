@@ -1,8 +1,37 @@
 <p style="color: green"><%= notice %></p>
 
 <div class="jumbotron m-3">
-    <h1 class="display-4">Articles listing page</h1>
+    <h1 class="display-4 text-center">Listing all articles</h1>
+    <p class="text-center">
+      <%= link_to 'Create new article', new_article_path, class: "btn-success btn-lg btn text-center" %>
+    </p>
     <hr class="my-4">
+
+    <div class="container ">
+      <% @articles.each do |article| %>
+        <div class="row justify-content-md-center">
+          <div class="col-8 mt-4">
+            <div class="card text-center shadow mb-5 bg-white rounded">
+              <div class="card-header font-italic">
+                by Some Person
+              </div>
+            <div class="card-body">
+              <h5 class="card-title "><%= link_to article.title, articles_path(article), class: "text-success" %></h5>
+              <p class="card-text"><%= truncate(article.description, length: 100) %></p>
+              <button type="button" class="btn btn-outline-success"><%= link_to 'View', article_path(article)%></button>
+              <button type="button" class="btn btn-outline-primary"><%= link_to 'Edit', edit_article_path(article), method: :edit, class: "btn-outline-success" %></button>
+              <button type="button" class="btn btn-outline-danger"><%= link_to 'Delete', article_path(article), method: :delete, form: { data: { turbo_comfirm: "Are you sure?" } } %></button>
+            </div>
+            <div class="card-footer text-muted">
+                <small>Created <%= time_ago_in_words(article.created_at)%> ago, edited <%= time_ago_in_words(article.updated_at)%> ago</small>
+            </div>
+          </div>
+        </div>
+    </div>
+    <br>
+        
+      <% end %>
+    </div>
 
     <%#
     <div id="articles">
@@ -15,42 +44,15 @@
     <%#</div>
 
     <%= link_to "New article", new_article_path %>
-    <br>
-    <br>
-
-
-
+  
     <%#------------ Extra code -----------%>
-    <%= link_to 'Home page', root_path %><br>
-    <br>
-    <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th colspan="3">Actions</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @articles.each do |article| %>
-          <tr>
-            <td><%= article.title %></td>
-            <td><%= article.description %></td>
-            <td><%= link_to 'Show', article_path(article) %></td>
-            <td><%= link_to 'Edit', edit_article_path(article), method: :edit %></td>
-            <%#in article_path(article.id) med går bra med bara article, rails smart för det%>
-            <%#link_to 'Delete' does not work darför skapat button_to %>
-            <td><%= button_to 'Delete', article_path(article), method: :delete, 
-              form: { data: { turbo_confirm: "Are you sure?" } } 
-            %> <%#article_path(article), method: :delete %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-    <p>
-      <%= link_to 'Create new article', new_article_path, class: "btn-create-new-article" %>
-    </p>
+    
+   
 
 </div>
+
+<footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; <%= link_to "Alpha Blog", root_path, class: "text-white" %></small>
+    </div>
+</footer>

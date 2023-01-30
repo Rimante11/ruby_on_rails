@@ -1,10 +1,24 @@
-<div class="jumbotron m-3">
+<div class="jombotron m-3 text-center home-container text-white" >
 
-  <h1 class="display-4">Alpha Blog</h1>
-  <hr class="my-4">
+  <h1 class="display-4 home-page-title">Alpha Blog</h1>
+  
   <%# articles_path  will produce something like this http://yourserver.com/articles which will be associated with your ArticlesController and index action.%>
   <%= link_to 'Articles listing page', articles_path %>
   <%= link_to 'About page', about_path%>
   <%= link_to 'Contact page extra', contact_path%>
+  <p class="lorem-text-home-page">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est nulla accusamus voluptates ipsa odio. Magni eum ratione officiis tempora, quas adipisci excepturi ipsa labore repudiandae eos animi, ab similique temporibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Est nulla accusamus voluptates ipsa odio. Magni eum ratione officiis tempora, quas adipisci excepturi ipsa labore repudiandae eos animi, ab similique temporibus.Est nulla accusamus voluptates ipsa odio. Magni eum ratione officiis tempora, quas adipisci excepturi ipsa labore repudiandae eos animi, ab similique temporibus.</p>
+
+  <a href="#" class="btn-success btn-lg btn" role="button">Sign up!</a>
 
 </div>
+
+<div id="page-content" >
+
+
+</div>
+
+<footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; <%= link_to "Alpha Blog", root_path, class: "text-white" %></small>
+    </div>
+</footer>
