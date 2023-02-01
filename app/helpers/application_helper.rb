@@ -7,7 +7,7 @@ module ApplicationHelper
 
   def logged_in?
     #!! boolean
-    !!@current_user
+    !!current_user
   end
 
 end
