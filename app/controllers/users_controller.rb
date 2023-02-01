@@ -8,8 +8,11 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = "Welcome to Alpha Blog #{@user.username} you signup sucssefully"
       redirect_to articles_path
-   else
-    render 'new'
+    else
+      render 'new'
+   
+        # format.html { render :new, status: :unprocessable_entity }
+        # format.json { render json: @article.errors, status: :unprocessable_entity }
    end
   end
 
