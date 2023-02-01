@@ -8,6 +8,6 @@ module ApplicationHelper
   def logged_in?
     #!! boolean
     !!current_user
-  end
+  end 
 
 end
