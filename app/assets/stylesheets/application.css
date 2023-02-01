@@ -75,6 +75,17 @@
     height: 460px;
  }
 
+ .userImg {
+  background-image: url('users_pic.png');
+  background-color: #5c636e;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 0;
+ }
+
  .home-page-title {
   color: rgb(70, 70, 70) !important;
   padding-top: 68px;
