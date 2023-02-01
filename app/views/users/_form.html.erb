@@ -29,7 +29,8 @@
 
         <br>
         <div class=" justify-content-center btn-create-article">
-          <%= form.submit "Sign up",  class:"btn btn-outline-light btn-lg" %>
+        <%#testar if user is att signup form eller Update form, ändras texten i button%>
+          <%= form.submit(@user.new_record? ? "Sign up" : "Update account",  class:"btn btn-outline-light btn-lg") %>
         </div>
       </div>
   <% end %>
