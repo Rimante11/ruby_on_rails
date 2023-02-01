@@ -30,6 +30,14 @@
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
               </ul>
             </li>
+
+            <li class="nav-item">
+              <%= link_to 'Log in', login_path, class: "nav-link"%>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Logout', login_path, class: "nav-link", method: :delete %>
+            </li>
+
             
           </ul>
           <form class="d-flex" role="search">
