@@ -1,19 +1,18 @@
 <div class="justify-content-center show-article shadow p-3 mb-5 bg-white rounded col-8">
-  <div id="<%= dom_id article %>">
+  <%# <div id="<%= dom_id article %> <%#"> 
     <p>
       <strong>Title:</strong>
       <%= article.title %>
-    </p>
+  <%#  </p>
 
     <p>
       <strong>Description:</strong>
       <%= article.description %>
-    </p>
+  <%#   </p>
+  </div> %>
 
-  </div>
 
-
-<div class="container ">
+    <div class="container ">
       <% @articles.each do |article| %>
         <div class="row justify-content-md-center">
           <div class="col-8 mt-4">
@@ -22,18 +21,21 @@
                 by <%= article.user.username if article.user%>
                 <%#to show user som tillhör till article, if pga om nån av article har inget user%>
               </div>
-            <div class="card-body">
-              <h5 class="card-title "><%= link_to article.title, articles_path(article), class: "text-success" %></h5>
-              <p class="card-text"><%= truncate(article.description, length: 100) %></p>
-              <button type="button" class="btn btn-outline-success"><%= link_to 'View', article_path(article)%></button>
-              <button type="button" class="btn btn-outline-primary"><%= link_to 'Edit', edit_article_path(article), method: :edit, class: "btn-outline-success" %></button>
-              <button type="button" class="btn btn-outline-danger"><%= link_to 'Delete', article_path(article), method: :delete, form: { data: { turbo_comfirm: "Are you sure?" } } %></button>
-            </div>
-            <div class="card-footer text-muted">
+              <div class="card-body">
+                <h5 class="card-title "><%= link_to article.title, articles_path(article), class: "text-success" %></h5>
+                <p class="card-text"><%= truncate(article.description, length: 100) %></p>
+                <button type="button" class="btn btn-outline-success"><%= link_to 'View', article_path(article)%></button>
+                <button type="button" class="btn btn-outline-primary"><%= link_to 'Edit', edit_article_path(article), method: :edit, class: "btn-outline-success" %></button>
+                <button type="button" class="btn btn-outline-danger"><%= link_to 'Delete', article_path(article), method: :delete, form: { data: { turbo_comfirm: "Are you sure?" } } %></button>
+              </div>
+              <div class="card-footer text-muted">
                 <small>Created <%= time_ago_in_words(article.created_at)%> ago, edited <%= time_ago_in_words(article.updated_at)%> ago</small>
+              </div>
             </div>
           </div>
         </div>
+        <br>  
+      <% end %>
     </div>
 
 
