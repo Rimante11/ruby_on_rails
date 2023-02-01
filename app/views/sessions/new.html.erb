@@ -1,0 +1,39 @@
+<h1 class="display-4 text-center">Log in</h1>
+
+<div class="container">
+  
+  <%= form_with(scope: :session, url: login_path, class:"shadow p-3 mb-3 form-bgd rounded") do |form| %>
+    <br>
+    <div class="formgroup row">
+
+      <div class="row justify-content-center">
+        <div class="col-8">
+          
+          <br>
+          <div class="form-group row">
+            <%= form.label :email, style: "display: block", class: "col-2 col-form-label bs-white label-text" %>
+          <div class="col-10">
+            <%= form.email_field :email, class:"form-control shadow rounded", placeholder: "Enter your email address" %>
+          </div>
+        </div>
+        <br>
+         <div class="form-group row">
+            <%= form.label :password, style: "display: block", class:"col-2 col-form-label bs-white label-text"%>
+            <div class="col-10">
+              <%= form.password_field :password, class: "form-control shadow rounded", placeholder: "Enter your password" %>
+            </div>
+          </div>
+
+        <br>
+        <div class=" justify-content-center btn-create-article">
+        <%#testar if user is att signup form eller Update form, ändras texten i button%>
+          <%= form.submit "Log in",  class:"btn btn-outline-light btn-lg" %>
+        </div>
+      </div>
+  <% end %>
+</div>
+  
+  </div>
+  <%= link_to "[ Cancel or back to articles ]", articles_path, class: "btn-create-article bs-gray-100" %>
+</div>
+
