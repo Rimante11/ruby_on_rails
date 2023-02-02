@@ -19,26 +19,16 @@
             <li class="nav-item">
               <%=link_to "Bloggers", users_path, class: "nav-link" %>
             </li>
-            
-
-
-
-            <%# <div class="dropdown show">
-              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown link
-              </a>
-
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div> %>
 
             
             <% if logged_in? %>
+              <li class="nav-item , nav-link  ">
+
+                <%= "(Admin)" if current_user.admin? %> Profile [<%= current_user.username%>]
+
+              </li>
               <li class="nav-item">
-                <%= link_to current_user.username, user_path(current_user), class: "nav-link"%>
+                <%= link_to "Delete profile", user_path(current_user), class: "nav-link text-danger", method: :delete, data: { comfirm: "Are you sure?" } %>
               </li>
               <li class="nav-item">
                 <%= link_to 'Logout', logout_path, class: "nav-link", method: :delete %>

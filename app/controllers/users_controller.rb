@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update] #pga vi tog bort commenterat bort
-  before_action :require_same_user, only: [ :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :destroy ] #pga vi tog bort commenterat bort
+  before_action :require_same_user, only: [ :edit, :update, :destroy]
 
   def show
     #@user = User.find(params[:id])   pga before_action
@@ -40,6 +40,12 @@ class UsersController < ApplicationController
         # format.html { render :new, status: :unprocessable_entity }
         # format.json { render json: @article.errors, status: :unprocessable_entity }
    end
+  end
+
+  def destroy
+    @user.destroy
+    session[:user_id] = nil
+    redirect_to articles_path
   end
 
   private
