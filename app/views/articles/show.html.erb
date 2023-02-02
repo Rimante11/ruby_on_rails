@@ -2,9 +2,16 @@
 
 <div class="jumbotron m-3">
     <h2 class="display-4 text-center"><%= @article.title%></h2>
-    <p class="text-center">
-      <%= link_to 'Create new article', new_article_path, class: "btn-success btn-lg btn text-center" %>
-    </p>
+    
+    <%# fix if user logged in kan skappa article, annars redirect to login page%>
+    <% if logged_in? %>
+      <p class="text-center">
+        <%= link_to 'Create new article', new_article_path, class: "btn-success btn-lg btn text-center" %>
+      </p>
+      <% else %>
+        <% link_to root_path %>
+    <% end %>
+    <%# end of fixning%>
     <hr class="my-4">
 
     <div class="container ">
@@ -21,8 +28,6 @@
 
               <div class="card-text text-left"><%= simple_format(@article.description) %></div>
             
-              <%# <button type="button" class="btn btn-outline-primary"><%= link_to 'Edit', edit_article_path(@article), method: :edit, class: "btn-outline-success" %><%#</button>
-              <button type="button" class="btn btn-outline-danger"><%= link_to 'Delete', article_path(@article), method: :delete, form: { data: { turbo_comfirm: "Are you sure?" } } %><%#</button> %>
 
               <% if logged_in? && @article.user == current_user%>
                 <%= link_to 'Edit', edit_article_path(@article), method: :edit, class: "btn btn-outline-primary" %>
