@@ -20,7 +20,12 @@
                 </h5>
                 <p class="card-text"><%= pluralize(user.articles.count, 'article') %></p>
                 <button type="button" class="btn btn-outline-success"><%= link_to 'View profile', user %></button>
-                <button type="button" class="btn btn-outline-primary"><%= link_to 'Edit profile', edit_user_path(user), method: :edit, class: "btn-outline-success" %></button>
+
+                <%# <button type="button" class="btn btn-outline-primary"><%= link_to 'Edit profile', edit_user_path(user), method: :edit, class: "btn-outline-success" %><%#</button> %>
+
+                <% if logged_in? and user == current_user %>
+                  <%= link_to 'Edit profile', edit_user_path(user), method: :edit, class: "btn btn-outline-primary" %>
+                <% end %>
                 
               </div>
               <div class="card-footer text-muted">
