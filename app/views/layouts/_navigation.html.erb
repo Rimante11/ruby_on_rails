@@ -25,6 +25,7 @@
               <li class="nav-item , nav-link  ">
 
                 <%= "(Admin)" if current_user.admin? %> Profile [<%= current_user.username%>]
+                <%= link_to "User page", user_path(current_user) %>
 
               </li>
               <li class="nav-item">
