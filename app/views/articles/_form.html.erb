@@ -17,10 +17,21 @@
           <br>
           <div class="form-group row">
             <%= form.label :description, style: "display: block", class: "col-2 col-form-label bs-white label-text" %>
-          <div class="col-10">
-            <%= form.text_area :description, rows: 10, class:"form-control shadow rounded", placeholder: "Description of article..." %>
+              <div class="col-10">
+                <%= form.text_area :description, rows: 10, class:"form-control shadow rounded", placeholder: "Description of article..." %>
+              </div>
           </div>
-        </div>
+          <br>
+
+
+          <div class="form-group row">
+            <%= form.label :category, style: "display: block", class: "col-2 col-form-label bs-white label-text" %>
+              <div class="col-10">
+                <%= form.collection_select(:category_ids, Category.all, :id, :name, { prompt: "Make your selection from the list below (can be empty)"}, { multiple: true, size: 3, class: "form-select shadow rounded" } )%>
+              </div>
+          </div>
+
+
         <br>
         <div class=" justify-content-center btn-create-article">
           <%= form.submit  class:"btn btn-outline-light btn-lg" %>
