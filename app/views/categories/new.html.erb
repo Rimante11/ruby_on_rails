@@ -1,33 +1,10 @@
 <div class="jumbotron m-3">
   <h1 class="display-4 text-center">Create a new category</h1>
   
+  <%= render 'form' %>
 
-  <div class="container">
-  <%= render 'shared/errors', obj: @category %>
-  <%= form_with(model: @category, class:"shadow p-3 mb-3 form-bgd rounded") do |form| %>
-    <br>
-    <div class="formgroup row">
-
-      <div class="row justify-content-center">
-        <div class="col-8">
-          <div class="form-group row">
-            <%= form.label :name, "Category name", style: "display: block", class: "col-2 col-form-label label-text" %>
-              <div class="col-10">
-                <%= form.text_field :name, class: "form-control shadow rounded", placeholder: "Enter a name"  %>
-              </div>
-          </div>
-
-        <br>
-        <div class=" justify-content-center btn-create-article">
-        <%#testar if user is att signup form eller Update form, ändras texten i button%>
-          <%= form.submit class:"btn btn-outline-light btn-lg" %>
-        </div>
-      </div>
-  <% end %>
-</div>
   
-  </div>
-  <%= link_to "[ Cancel or back to articles ]", articles_path, class: "btn-create-article bs-gray-100" %>
+    <%= link_to "[ Cancel and return to categories listing ]", categories_path(@category), class: "btn-create-article bs-gray-100" %>
 </div>
 
 </div>
