@@ -20,14 +20,24 @@
               <%=link_to "Bloggers", users_path, class: "nav-link" %>
             </li>
 
+            <li class="nav-item">
+              <%=link_to "Categories", categories_path, class: "nav-link" %>
+            </li>
+
             
             <% if logged_in? %>
-              <li class="nav-item , nav-link  ">
 
+              <% if logged_in? && current_user.admin?%>
+                <li class="nav-item">
+                  <%=link_to "Create new categories", new_category_path, class: "nav-link" %>
+                </li>
+              <% end %>
+
+              <li class="nav-item , nav-link  ">
                 <%= "(Admin)" if current_user.admin? %> Profile [<%= current_user.username%>]
                 <%= link_to "User page", user_path(current_user) %>
-
               </li>
+
               <li class="nav-item">
                 <%= link_to "Delete profile", user_path(current_user), class: "nav-link text-danger", method: :delete, data: { comfirm: "Are you sure?" } %>
               </li>
