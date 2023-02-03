@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy' #changet from delete to get pga funkade ej
   resources :users, only: :destory
+
+  resources :categories, except: [:destroy]
 end
